@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Reddit Test App</string>
+    <string name="save_image">save image</string>
 </resources>
