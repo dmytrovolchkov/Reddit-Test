@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), Adapter.ItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    val web = "https://www.reddit.com/top.json"
+    val web = "https://www.reddit.com/.json"
     val progressBar : ProgressBar = findViewById<View>(R.id.progressBar) as ProgressBar
     val auth = ArrayList<String>()
     val comm = ArrayList<String>()
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity(), Adapter.ItemClickListener {
                     val json1 = k.substringAfter("\"thumbnail\": \"")
                     k = json1
                     bmpUrl = json1.substringBefore("\"")
-                    if (bmpUrl != "default") {
+                    if (bmpUrl != "default" && bmpUrl != "self") {
                         val input: InputStream = URL(bmpUrl).openStream()
                         bmp = BitmapFactory.decodeStream(input)
                         thumbnail.add(bmp)
