@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity(), Adapter.ItemClickListener {
                     val json1 = k.substringAfter("\"thumbnail\": \"")
                     k = json1
                     bmpUrl = json1.substringBefore("\"")
-                    if (bmpUrl != "default" && bmpUrl != "self") {
+                    if (bmpUrl.substring(0, 4) == "http") {
                         val input: InputStream = URL(bmpUrl).openStream()
                         bmp = BitmapFactory.decodeStream(input)
                         thumbnail.add(bmp)
